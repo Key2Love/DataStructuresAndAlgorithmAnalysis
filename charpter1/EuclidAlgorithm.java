@@ -1,6 +1,7 @@
+package charpter1;
+
 /**
- * 欧几里得算法
- * 求两个数的最大公因数
+ * 欧几里得算法 求两个数的最大公因数
  */
 class EuclidAlgorithm{
     public static int gcd(int a, int b){

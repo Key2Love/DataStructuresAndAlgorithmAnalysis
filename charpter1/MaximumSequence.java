@@ -1,3 +1,5 @@
+package charpter1;
+
 //求序列的最大值
 
 class MaximumSequence {

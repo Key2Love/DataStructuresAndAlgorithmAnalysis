@@ -1,3 +1,5 @@
+package charpter1;
+
 /**
  * 二分查找
  */
