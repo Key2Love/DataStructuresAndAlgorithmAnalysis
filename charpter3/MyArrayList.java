@@ -99,7 +99,6 @@ public class MyArrayList<AnyType> implements Iterable<AnyType> {
 
 		@Override
 		public AnyType next() {
-			// TODO Auto-generated method stub
 			return theItems[current++];
         }
         
