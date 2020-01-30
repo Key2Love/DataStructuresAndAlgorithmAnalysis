@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Pow",
+            "request": "launch",
+            "mainClass": "charpter1.Pow",
+            "projectName": "Algorithm_ab3327af"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - EuclidAlgorithm",
             "request": "launch",
             "mainClass": "EuclidAlgorithm",
