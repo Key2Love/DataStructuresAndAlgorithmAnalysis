@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - test",
+            "request": "launch",
+            "mainClass": "charpter3.test",
+            "projectName": "Algorithm_ab3327af"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - E1",
+            "request": "launch",
+            "mainClass": "charpter3.E1",
+            "projectName": "Algorithm_ab3327af"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Pow",
             "request": "launch",
             "mainClass": "charpter1.Pow",

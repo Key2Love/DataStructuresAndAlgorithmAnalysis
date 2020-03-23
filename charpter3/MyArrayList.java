@@ -1,5 +1,6 @@
 package charpter3;
 
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class MyArrayList<AnyType> implements Iterable<AnyType> {
@@ -85,30 +86,69 @@ public class MyArrayList<AnyType> implements Iterable<AnyType> {
 
     }
 
+    public void addAll(Iterable<? extends AnyType> items) {
+        for (AnyType it : items) {
+            add(it);
+        }
+    }
+
+    public void removeAll(Iterable<? extends AnyType> items) {
+        for (AnyType it : items) {
+            remove(indexOf(it));
+        }
+    }
+
+    public boolean contains(AnyType item) {
+        return indexOf(item) != -1;
+
+    }
+
+    /**
+     * null 代表的是空对象，对空对象做任何操作都不行的（equals也不行），除了=和==。 null 可以赋值给任何对象。
+     * ""代表的是空字符串，即一个字符串的长度是0。
+     * 
+     * @param item
+     * @return
+     */
+    public Integer indexOf(AnyType item) {
+        if (item == null) {
+            for (int i = 0; i < theSize; i++) {
+                if (theItems[i] == null) {
+                    return i;
+                } else {
+                    for (int j = 0; i < theSize; i++) {
+                        if (theItems[i].equals(item)) {
+                            return i;
+                        }
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+
     @Override
     public Iterator<AnyType> iterator() {
         return new ArrayListIterator();
     }
-    private class ArrayListIterator implements Iterator<AnyType>{
+
+    private class ArrayListIterator implements Iterator<AnyType> {
         private int current = 0;
 
-		@Override
-		public boolean hasNext() {
-			return current < size();
-		}
-
-		@Override
-		public AnyType next() {
-			return theItems[current++];
+        @Override
+        public boolean hasNext() {
+            return current < size();
         }
-        
-        public void remove(){
+
+        @Override
+        public AnyType next() {
+            return theItems[current++];
+        }
+
+        public void remove() {
             MyArrayList.this.remove(--current);
         }
-        
+
     }
 
-
-
-    
 }
