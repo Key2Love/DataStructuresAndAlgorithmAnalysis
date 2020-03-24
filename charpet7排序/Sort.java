@@ -14,17 +14,19 @@ import java.util.List;
 
 public class Sort {
     private static final int OFFSET = 10;
+
     public static void main(String[] args) {
-        Integer[] a = {1, 3, 4, 5, 7, 6};
+        Integer[] a = {1, 3, 4, 5, 7, 6,2,3,4,1,4,124,124,123,4,24,23,42,124,14,124142,123,2323,424,2144,4214,12414,424,3,2,42,5,12,124,2141,5,124,52,14,521,14,152,14,5251,12,1,5125,21515,};
         Integer[] b = new Integer[6];
-        Sort.merge(a, b, 0, 3, 5);
-        for (Integer c : a) {
+        Sort.quickSort(a);
+        for (Integer c:a){
             System.out.println(c);
         }
+
     }
 
     private static <AnyType extends Object>
-    void swapReference(AnyType[] anArray, int a, int b){
+    void swapReference(AnyType[] anArray, int a, int b) {
         AnyType temp = anArray[a];
         anArray[a] = anArray[b];
         anArray[b] = temp;
@@ -37,9 +39,9 @@ public class Sort {
      * @param <AnyType>
      */
     public static <AnyType extends Comparable<? super AnyType>>
-    void insertSort(AnyType[] anArray) {
+    void insertSort(AnyType[] anArray,int left,int right) {
         int j;
-        for (int i = 1; i < anArray.length; i++) {
+        for (int i = left; i <= right; i++) {
             AnyType tmp = anArray[i];
             for (j = i; j >= 1 && tmp.compareTo(anArray[j - 1]) < 0; j--) {
                 anArray[j] = anArray[j - 1];
@@ -175,6 +177,7 @@ public class Sort {
 
     /**
      * 快排的驱动函数
+     *
      * @param a
      * @param <AnyType>
      */
@@ -183,21 +186,80 @@ public class Sort {
         quickSort(a, 0, a.length - 1);
     }
 
+    /**
+     * 总结快排流程，首先left=0,right=末尾索引。如果left+OFFSET>right则小数组，使用插入排序。
+     * 如果不，调用median3方法，将中位数放在right-1，pivot=aList[right-1]。
+     * 建立一个死循环，i =left,j=right-1。for(::)死循环，内部 while(++i)比较,while(--j)比较
+     * 方法体内如果i<j，交换索引。如果不是退出循环
+     * **注意，退出循环后，记得交换i和right-1索引**
+     * 最后，递归调用quickSort(aList,left,i-1);
+     * quickSort(aList,i+1,right)
+     * @param aList
+     * @param left
+     * @param right
+     * @param <AnyType>
+     */
     private static <AnyType extends Comparable<? super AnyType>>
     void quickSort(AnyType[] aList, int left, int right) {
-        if(left + OFFSET <= right){
-            AnyType pivot =
+        if (left + OFFSET <= right) {
+            AnyType pivot = median3(aList, left, right);
+            //begin partitioning
+            int i = left, j = right - 1;
+            // 死循环的写法for ( ; ; )
+            for (; ; ) {
+                //此处为什么不从left开始，因为median3方法保证了left<pivot<right
+                while (aList[++i].compareTo(pivot) < 0) {
+                }
+                while (aList[--j].compareTo(pivot) > 0) {
+                }
+                /** 如果是这样的写法，那么a[i]=a[j]=pivot会陷入死循环。
+                while (aList[i].compareTo(pivot) < 0) {
+                    i++;
+                }*/
+                if (i < j) {
+                    swapReference(aList, i, j);
+                } else {
+                    break;
+                }
+            }
+
+            //restore pivot，重新建立pivot。把pivot移到中间
+            swapReference(aList, i, right - 1);
+            //small elements
+            quickSort(aList,left,i-1);
+            //large elements
+            quickSort(aList,i+1,right);
+        }else{
+            insertSort(aList,left,right);
         }
 
     }
 
+
+    /**
+     * 取median
+     *
+     * @param aList
+     * @param left
+     * @param right
+     * @param <AnyType>
+     * @return
+     */
     private static <AnyType extends Comparable<? super AnyType>>
-    void median3(AnyType[] aList, int left , int right){
-        int center = (left+right)/2;
-        if(aList[left].compareTo(aList[right])>0){
-            swapReference(aList,left,right);
+    AnyType median3(AnyType[] aList, int left, int right) {
+        int center = (left + right) / 2;
+        if (aList[left].compareTo(aList[right]) > 0) {
+            swapReference(aList, left, right);
         }
-        if (aList[])
+        if (aList[left].compareTo(aList[center]) > 0) {
+            swapReference(aList, left, right);
+        }
+        if (aList[center].compareTo(aList[right]) > 0) {
+            swapReference(aList, center, right);
+        }
+        //place pivot at pos right -1
+        swapReference(aList, center, right - 1);
+        return aList[right - 1];
 
     }
 }
