@@ -1,5 +1,6 @@
 import org.omg.CORBA.Any;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -8,6 +9,8 @@ import java.util.List;
 /**
  * @program: algorithm
  * @description: 各种排序
+ * 1.<AnyType extends Comparable<? super AnyType>>表示对AnyType的一个限定。必须实现Comparable
+ * 2.“? super AnyType”表示 接受AnyType或AnyType的父类。
  * @author: Sunbuhui7
  * @create: 2020-03-22 10:16
  **/
@@ -16,10 +19,10 @@ public class Sort {
     private static final int OFFSET = 10;
 
     public static void main(String[] args) {
-        Integer[] a = {1, 3, 4, 5, 7, 6,2,3,4,1,4,124,124,123,4,24,23,42,124,14,124142,123,2323,424,2144,4214,12414,424,3,2,42,5,12,124,2141,5,124,52,14,521,14,152,14,5251,12,1,5125,21515,};
+        Integer[] a = {1, 3, 4, 5, 7, 6, 2, 3, 4, 1, 4, 124, 124, 123, 4, 24, 23, 42, 124, 14, 124142, 123, 2323, 424, 2144, 4214, 12414, 424, 3, 2, 42, 5, 12, 124, 2141, 5, 124, 52, 14, 521, 14, 152, 14, 5251, 12, 1, 5125, 21515,};
         Integer[] b = new Integer[6];
         Sort.quickSort(a);
-        for (Integer c:a){
+        for (Integer c : a) {
             System.out.println(c);
         }
 
@@ -39,7 +42,7 @@ public class Sort {
      * @param <AnyType>
      */
     public static <AnyType extends Comparable<? super AnyType>>
-    void insertSort(AnyType[] anArray,int left,int right) {
+    void insertSort(AnyType[] anArray, int left, int right) {
         int j;
         for (int i = left; i <= right; i++) {
             AnyType tmp = anArray[i];
@@ -194,6 +197,7 @@ public class Sort {
      * **注意，退出循环后，记得交换i和right-1索引**
      * 最后，递归调用quickSort(aList,left,i-1);
      * quickSort(aList,i+1,right)
+     *
      * @param aList
      * @param left
      * @param right
@@ -213,9 +217,9 @@ public class Sort {
                 while (aList[--j].compareTo(pivot) > 0) {
                 }
                 /** 如果是这样的写法，那么a[i]=a[j]=pivot会陷入死循环。
-                while (aList[i].compareTo(pivot) < 0) {
-                    i++;
-                }*/
+                 while (aList[i].compareTo(pivot) < 0) {
+                 i++;
+                 }*/
                 if (i < j) {
                     swapReference(aList, i, j);
                 } else {
@@ -226,11 +230,11 @@ public class Sort {
             //restore pivot，重新建立pivot。把pivot移到中间
             swapReference(aList, i, right - 1);
             //small elements
-            quickSort(aList,left,i-1);
+            quickSort(aList, left, i - 1);
             //large elements
-            quickSort(aList,i+1,right);
-        }else{
-            insertSort(aList,left,right);
+            quickSort(aList, i + 1, right);
+        } else {
+            insertSort(aList, left, right);
         }
 
     }
@@ -252,7 +256,7 @@ public class Sort {
             swapReference(aList, left, right);
         }
         if (aList[left].compareTo(aList[center]) > 0) {
-            swapReference(aList, left, right);
+            swapReference(aList, left, center);
         }
         if (aList[center].compareTo(aList[right]) > 0) {
             swapReference(aList, center, right);
