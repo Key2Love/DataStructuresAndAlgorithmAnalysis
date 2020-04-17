@@ -1,6 +1,7 @@
 /**
  * @program: algorithm
- * @description: 继承Recipt抽象类
+ * @description: 继承Recipt抽象类。
+ * 实现获取商品名，获取价格
  * @author: Sunbuhui7
  * @create: 2020-04-14 22:44
  **/
