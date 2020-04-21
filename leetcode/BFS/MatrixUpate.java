@@ -5,7 +5,8 @@ import java.util.Queue;
 
 /**
  * @program: algorithm
- * @description: 给定一个由0和1组成的矩阵，找出每个元素到最近的0的距离。
+ * @description: 给定一个由0和1组成的矩阵，
+ * 找出每个元素到最近的0的距离。
  * @author: Sunbuhui7
  * @create: 2020-04-15 13:08
  **/
@@ -19,7 +20,7 @@ public class MatrixUpate {
         //定义变量
         int m = matrix.length;
         int n = matrix[0].length;
-        //队列，后进先出
+        //队列，后进先出。Queue是个接口，LinkedList实现了该接口的子接口Deque,是个双向队列
         Queue<int[]> queue = new LinkedList<>();
         int[] dx = {-1,1,0,0};
         int[] dy = {0,0,-1,1};

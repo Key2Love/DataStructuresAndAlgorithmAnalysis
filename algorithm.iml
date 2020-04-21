@@ -9,9 +9,6 @@
       <sourceFolder url="file://$MODULE_DIR$/charpet7排序" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Tree" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Java并发" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/DesignPattern" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/DesignPattern/2decorator" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/DesignPattern/decorator" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/charpter1" />
       <excludeFolder url="file://$MODULE_DIR$/charpter3" />
     </content>
