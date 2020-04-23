@@ -1,5 +1,8 @@
 package casino;
 
+/**
+ * 现金类
+ */
 public class Cash {
     private int money;
 

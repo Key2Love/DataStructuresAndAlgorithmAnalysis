@@ -1,6 +1,9 @@
+package decorator;
+
 /**
  * @program: algorithm
- * @description: Client端
+ * 这里是发票系统的客户端，同时也是测试的部分。
+ * print方法是按照格式打印的部分。
  * @author: Sunbuhui7
  * @create: 2020-04-15 21:35
  **/

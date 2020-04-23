@@ -1,3 +1,5 @@
+package decorator;
+
 /**
  * @program: algorithm
  * @description: 可乐

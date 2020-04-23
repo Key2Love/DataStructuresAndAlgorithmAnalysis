@@ -1,3 +1,4 @@
+package decorator;
 /**
  * @program: algorithm
  * @description: 商品的抽象类

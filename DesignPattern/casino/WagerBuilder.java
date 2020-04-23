@@ -1,5 +1,8 @@
 package casino;
 
+/**
+ * 采用builder模式
+ */
 public class WagerBuilder {
     private Wager wager = new Wager();
 

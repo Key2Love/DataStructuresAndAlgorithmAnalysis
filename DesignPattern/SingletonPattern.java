@@ -11,14 +11,15 @@
 /**
  * 这是Eager Singleton，
  * 饿汉单例模式
- * 在类加载时就完成了初始化，所以类加载较慢，但获取对象的速度快
+ * 在类加载时就完成了初始化，所以类加载较慢，但获取对象的速度快.
+ * 线程安全的。
  */
 class EagerSingleton {
     private static final EagerSingleton INSTANCE = new EagerSingleton();
     private String val;
 
     private EagerSingleton() {}
-    public  static EagerSingleton getInstance(){
+    public  static  EagerSingleton getInstance(){
         return INSTANCE;
     }
 

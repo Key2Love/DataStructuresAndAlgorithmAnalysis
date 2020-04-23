@@ -1,6 +1,9 @@
+package decorator;
+
 /**
  * @program: algorithm
- * @description: 小包包
+ *小包包
+ * 继承抽象商品，override了getName() price()
  * @author: Sunbuhui7
  * @create: 2020-04-14 23:03
  **/

@@ -2,6 +2,10 @@ package casino;
 
 import java.util.Objects;
 
+/**
+ * 筹码。
+ * 需要重写Jetton类的equals(),hashcode()方法。
+ */
 public class Jetton implements Iexchange {
     private int unit;
 

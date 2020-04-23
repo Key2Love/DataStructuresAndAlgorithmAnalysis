@@ -1,3 +1,5 @@
+package decorator;
+
 /**
  * @program: algorithm
  * @description: 发票的抽象类
