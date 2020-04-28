@@ -10,7 +10,7 @@ import java.util.Set;
  * 2、	赌注实际上就是筹码的集合
  * （实际上是一种聚集，但是可以使用Composite模式练习一下）；
  */
-public class Wager implements   Iadd,Iexchange,Isum{
+public class    Wager implements   Iadd,Iexchange,Isum{
     private Map<Jetton, Integer> hm = new HashMap<Jetton, Integer>();
     private int id;
 
